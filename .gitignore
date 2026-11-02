@@ -5,3 +5,14 @@ sim/*.wdb
 sim/*.backup.*
 sim/xsim.dir/
 sim/webtalk*
+sim/regress/
+sim/out*.txt
+sim/regress_full.*
+sim/*.wcfg
+sim/.Xil/
+sim/synth/*.rpt
+sim/synth/*.jou
+sim/synth/*.log
+.Xil/
+vivado*.jou
+vivado*.log
