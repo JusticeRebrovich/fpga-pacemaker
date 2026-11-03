@@ -118,12 +118,31 @@ every output is held for a whole tick, and the testbench verifies the controller
 arrive. The rewrite also adds saturation to the detector's accumulator, which previously could wrap around on a
 sustained negative input.
 
+## Adaptive-threshold detector behavior
+
+The detector is an adaptive LIF neuron: the membrane voltage `v` integrates the ECG, and the firing threshold
+`theta` jumps after every beat and decays back, so a beat is detected once and noise is not. This plot is from a
+Python model of the detector (ECG input, input current, `v` against `theta`, detected spikes, pacing events):
+
+<img src="docs/images/python-model-waveforms.png" alt="Python model of the adaptive LIF detector" width="760">
+
 ## PCB integration
 
 The original single-chamber design was extended with a custom KiCad PCB (2-layer, PMOD-compatible) with a pace
 LED, an alarm LED, a buzzer driven by a 2N3904, a pushbutton with a 10 kohm pulldown, and a decoupling
 capacitor. [`hardware/pacemaker_led_demo.v`](hardware/pacemaker_led_demo.v) is the simple Verilog that drove
 that board. See the [`docs`](docs) folder for the presentations and reports from each course.
+
+<p>
+  <img src="docs/images/pcb-fabricated.jpg" alt="Fabricated PCB" width="420">
+  <img src="docs/images/pcb-kicad-3d.png" alt="KiCad 3D view" width="420">
+</p>
+<p>
+  <img src="docs/images/pcb-kicad-schematic.png" alt="KiCad schematic" width="420">
+  <img src="docs/images/pcb-kicad-layout.png" alt="KiCad PCB layout" width="420">
+</p>
+
+Fabricated board, KiCad 3D render, schematic, and routed layout.
 
 ## Repository layout
 
